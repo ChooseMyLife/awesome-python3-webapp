@@ -50,7 +50,7 @@ async def execute(sql, args, autocommit=True):
                 affected = cur.rowcount
             if not autocommit:
                 await conn.commit()
-        except BaseException as e:
+        except BaseException as _:
             if not autocommit:
                 await conn.rollback()
             raise
